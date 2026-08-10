@@ -5,7 +5,7 @@ import aquality.selenium.forms.Form;
 import org.openqa.selenium.By;
 
 public class MainPage extends Form {
-    private final ILabel timerLabel = getElementFactory().getLabel(By.xpath("//div[contains(@class,'timer--center')]"), "Timer");
+    private final ILabel timerLabel = getElementFactory().getLabel(By.cssSelector("div.timer--gray"), "Timer");
 
     private SignUpForm signUpForm;
     private InterestsForm interestsForm;
