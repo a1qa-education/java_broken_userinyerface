@@ -4,7 +4,6 @@ import aquality.selenium.browser.AqualityServices;
 import aquality.selenium.elements.interfaces.IButton;
 import aquality.selenium.elements.interfaces.ICheckBox;
 import aquality.selenium.forms.Form;
-import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import utils.RandomUtils;
 import utils.RobotUtils;
@@ -20,7 +19,6 @@ public class InterestsForm extends Form {
         super(By.xpath("//a[contains(@class,'avatar-and-interests')]"), "Interests form");
     }
 
-    @Step("Select {number} random interests")
     public void clickRandomInterests(int number) {
         List<ICheckBox> allInterests = getAllInterests();
         int counter = 0;
@@ -31,12 +29,10 @@ public class InterestsForm extends Form {
         }
     }
 
-    @Step("Click Next button")
     public void clickNextBtn() {
         nextBtn.click();
     }
 
-    @Step("Upload avatar: {fileName}")
     public void uploadAvatar(String fileName) {
         uploadBtn.click();
         RobotUtils.uploadFileFromUploadsFolder(fileName);

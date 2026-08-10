@@ -1,9 +1,12 @@
 package pages;
 
+import aquality.selenium.elements.interfaces.ILabel;
 import aquality.selenium.forms.Form;
 import org.openqa.selenium.By;
 
 public class MainPage extends Form {
+    private final ILabel timerLabel = getElementFactory().getLabel(By.xpath("//div[contains(@class,'timer--center')]"), "Timer");
+
     private SignUpForm signUpForm;
     private InterestsForm interestsForm;
     private PersonalDetailsForm personalDetailsForm;
@@ -12,6 +15,10 @@ public class MainPage extends Form {
 
     public MainPage() {
         super(By.className("bagaar-link__image"), "Main page");
+    }
+
+    public String getTimerValue() {
+        return timerLabel.getText();
     }
 
     public SignUpForm getSignUpForm() {

@@ -28,10 +28,5 @@ replay_pid*
 target/
 *.iml
 
-# Allure
-.allure/
-allure-results/
-allure-report/
-
 # Downloads folder
 downloads/

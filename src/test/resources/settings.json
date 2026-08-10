@@ -19,7 +19,8 @@
         "Performance": "All"
       },
       "pageLoadStrategy": "Normal",
-      "startArguments": []
+      "startArguments": ["--disable-search-engine-choice-screen"],
+      "excludedArguments": []
     },
     "edge": {
       "capabilities": {
@@ -35,7 +36,8 @@
       "loggingPreferences": {
         "Performance": "All"
       },
-      "startArguments": []
+      "startArguments": [],
+      "excludedArguments": []
     },
     "firefox": {
       "capabilities": {
