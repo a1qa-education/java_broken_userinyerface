@@ -76,7 +76,7 @@ public class RandomUtils {
     }
 
     public Domains getRandomDomain() {
-        // TODO: complete the method to get a random domain
-        return null;
+        Domains[] domains = Domains.values();
+        return domains[getRandomInt(domains.length)];
     }
 }
