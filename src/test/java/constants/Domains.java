@@ -1,7 +1,6 @@
 package constants;
 
 public enum Domains {
-    OTHER("other"),
     ORG,
     CO_UK(".co.uk"),
     NET,
