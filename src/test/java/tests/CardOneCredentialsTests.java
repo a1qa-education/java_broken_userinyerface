@@ -21,8 +21,6 @@ public class CardOneCredentialsTests extends BaseTest {
 
     @BeforeMethod
     public void isGamePageOpened() {
-        SignUpForm signUpForm = new MainPage().getSignUpForm();
-
         Assert.assertTrue(signUpForm.state().waitForDisplayed(), "Sign Up card should be displayed");
         Assert.assertEquals(signUpForm.getPageIndicatorText(), FIRST_CARD_PAGE_INDICATOR_TEXT, "Page Indicator should be the same as expected");
     }
