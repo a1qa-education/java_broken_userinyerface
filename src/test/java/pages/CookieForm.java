@@ -5,7 +5,7 @@ import aquality.selenium.forms.Form;
 import org.openqa.selenium.By;
 
 public class CookieForm extends Form {
-    private final IButton acceptCookiesBtn = getElementFactory().getButton(By.xpath("//div[@class='cookies']//button[contains(text(),'Yes')]"), "Accept Cookies");
+    private final IButton acceptCookiesBtn = getElementFactory().getButton(By.xpath("//button[text()='Not really,no']"), "Accept Cookies");
 
     CookieForm() {
         super(By.className("cookies"), "Cookie form");

@@ -1,19 +1,23 @@
 package pages;
 
 import aquality.selenium.elements.interfaces.IButton;
+import aquality.selenium.elements.interfaces.ICheckBox;
+import aquality.selenium.elements.interfaces.ILabel;
 import aquality.selenium.elements.interfaces.ITextBox;
 import aquality.selenium.forms.Form;
 import constants.Domains;
 import org.openqa.selenium.By;
 
 public class SignUpForm extends Form {
-    private static final By PASSWORD_FIELD_LOC = By.xpath("//div[contains(@class,'login-form')]/input");
+    private static final By PASSWORD_FIELD_LOC = By.cssSelector("input[placeholder='Choose Password']");
     private static final String DOMAIN_ITEM_LOC_TEMPLATE = "//div[contains(@class,'dropdown__list-item') and normalize-space(text())='%s']";
     private final ITextBox passwordField = getElementFactory().getTextBox(PASSWORD_FIELD_LOC, "Password field");
-    private final ITextBox emailField = getElementFactory().getTextBox(By.xpath("//input[contains(@placeholder,'email')]"), "Email field");
-    private final ITextBox domainField = getElementFactory().getTextBox(By.xpath("//input[contains(@placeholder,'Domain')]"), "Domain field");
+    private final ITextBox emailField = getElementFactory().getTextBox(By.cssSelector("input[placeholder='Your email']"), "Email field");
+    private final ITextBox domainField = getElementFactory().getTextBox(By.cssSelector("input[placeholder='Domain']"), "Domain field");
     private final IButton domainDropdown = getElementFactory().getButton(By.xpath("//div[contains(@class,'login-form')]//div[contains(@class,'opener')]"), "Domain dropdown");
     private final IButton nextBtn = getElementFactory().getButton(By.xpath("//div[contains(@class,'login-form')]//a[text()='Next']"), "Next");
+    private final ICheckBox acceptTermsConditionsCheckbox = getElementFactory().getCheckBox(By.cssSelector("label[for='accept-terms-conditions']"), "Accept Terms Conditions");
+    private final ILabel pageIndicatorLabel = getElementFactory().getLabel(By.cssSelector("div.page-indicator"), "Page Indicator");
 
     SignUpForm() {
         super(PASSWORD_FIELD_LOC, "Sign Up form");
@@ -36,8 +40,16 @@ public class SignUpForm extends Form {
         getDomainDropdownItem(domain).click();
     }
 
+    public void acceptTermsConditions() {
+        acceptTermsConditionsCheckbox.click();
+    }
+
     public void clickNextBtn() {
         nextBtn.click();
+    }
+
+    public String getPageIndicatorText() {
+        return pageIndicatorLabel.getText();
     }
 
     private IButton getDomainDropdownItem(Domains domain) {
