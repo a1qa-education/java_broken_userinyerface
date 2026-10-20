@@ -1,7 +1,5 @@
 package utils;
 
-import java.util.concurrent.ThreadLocalRandom;
-
 public class WaitUtils {
     public static void sleep(long milliseconds) {
         try {
