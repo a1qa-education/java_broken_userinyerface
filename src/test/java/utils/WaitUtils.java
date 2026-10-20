@@ -1,9 +1,11 @@
 package utils;
 
+import java.util.concurrent.ThreadLocalRandom;
+
 public class WaitUtils {
-    public static void sleep(long seconds) {
+    public static void sleep(long milliseconds) {
         try {
-            Thread.sleep(seconds*1000);
+            Thread.sleep(milliseconds);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }

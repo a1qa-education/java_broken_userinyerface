@@ -4,7 +4,6 @@ import aquality.selenium.browser.AqualityServices;
 import constants.Domains;
 import models.EmailData;
 import org.testng.Assert;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import pages.*;
 import utils.TestDataReader;
@@ -19,15 +18,12 @@ public class CardOneCredentialsTests extends BaseTest {
     private final InterestsForm interestsForm = new MainPage().getInterestsForm();
     private final EmailData emailTestData = TestDataReader.getEmailData();
 
-    @BeforeMethod
-    public void isGamePageOpened() {
-        Assert.assertTrue(signUpForm.state().waitForDisplayed(), "Sign Up card should be displayed");
-        Assert.assertEquals(signUpForm.getPageIndicatorText(), FIRST_CARD_PAGE_INDICATOR_TEXT, "Page Indicator should be the same as expected");
-    }
-
     @Test
     public void checkPasswordPolicyCompliance() {
         Domains domain = Domains.valueOf(emailTestData.getEmailExtension().toUpperCase());
+
+        Assert.assertTrue(signUpForm.state().waitForDisplayed(), "Sign Up card should be displayed");
+        Assert.assertEquals(signUpForm.getPageIndicatorText(), FIRST_CARD_PAGE_INDICATOR_TEXT, "Page Indicator should be the same as expected");
 
         fillCredentials(domain, emailTestData.getFirstPassword());
         signUpForm.clickNextBtn();
@@ -39,6 +35,9 @@ public class CardOneCredentialsTests extends BaseTest {
     @Test
     public void checkEmailDomainExtensions() {
         List<Domains> emailExtensions = Arrays.stream(Domains.values()).toList();
+
+        Assert.assertTrue(signUpForm.state().waitForDisplayed(), "Sign Up card should be displayed");
+        Assert.assertEquals(signUpForm.getPageIndicatorText(), FIRST_CARD_PAGE_INDICATOR_TEXT, "Page Indicator should be the same as expected");
 
         emailExtensions.forEach(emailExtension -> {
             fillCredentials(emailExtension, emailTestData.getSecondPassword());
