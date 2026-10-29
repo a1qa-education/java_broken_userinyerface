@@ -7,7 +7,7 @@ import utils.WaitUtils;
 
 public class SessionTimerTests extends BaseTest {
     private static final String EXPECTED_TIMER_VALUE = "00:00:00";
-    private static final long TIMER_DISPLAY_TIMEOUT_MS = 850;
+    private static final long TIMER_DISPLAY_TIMEOUT_MS = 700;
 
     @Test
     public void checkTimerInitialValue() {
