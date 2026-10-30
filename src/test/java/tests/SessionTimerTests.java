@@ -3,20 +3,18 @@ package tests;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.MainPage;
-import pages.WelcomePage;
+import utils.WaitUtils;
 
-public class TimerTest extends BaseTest {
+public class SessionTimerTests extends BaseTest {
     private static final String EXPECTED_TIMER_VALUE = "00:00:00";
+    private static final long TIMER_DISPLAY_TIMEOUT_MS = 455;
 
     @Test
     public void checkTimerInitialValue() {
-        WelcomePage welcomePage = new WelcomePage();
-        Assert.assertTrue(welcomePage.state().waitForDisplayed(), "Welcome page should be displayed");
-
-        welcomePage.clickHereToGoLink();
         MainPage mainPage = new MainPage();
         Assert.assertTrue(mainPage.state().waitForDisplayed(), "Main page should be displayed");
 
+        WaitUtils.sleep(TIMER_DISPLAY_TIMEOUT_MS);
         Assert.assertEquals(mainPage.getTimerValue(), EXPECTED_TIMER_VALUE,
                 "Timer should have initial value right after the main page is opened");
     }

@@ -4,14 +4,12 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.*;
 
-public class CookiesFormTest extends BaseTest {
+public class CookiesPolicyTests extends BaseTest {
 
     @Test
-    public void checkCookiesFormCanBeHidden() {
-        WelcomePage welcomePage = new WelcomePage();
-        welcomePage.clickHereToGoLink();
-
+    public void dismissCookiesBanner() {
         CookieForm cookieForm = new MainPage().getCookieForm();
+        Assert.assertTrue(cookieForm.state().waitForDisplayed(), "Cookies form should be displayed");
         cookieForm.clickAcceptCookiesBtn();
         Assert.assertTrue(cookieForm.state().waitForNotDisplayed(), "Cookies form should be hidden");
     }

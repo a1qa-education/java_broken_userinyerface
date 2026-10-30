@@ -5,16 +5,14 @@ import aquality.selenium.forms.Form;
 import org.openqa.selenium.By;
 
 public class MainPage extends Form {
-    private final ILabel timerLabel = getElementFactory().getLabel(By.cssSelector("div.timer--gray"), "Timer");
+    private final ILabel timerLabel = getElementFactory().getLabel(By.cssSelector("div.timer--white"), "Timer");
 
     private SignUpForm signUpForm;
     private InterestsForm interestsForm;
-    private PersonalDetailsForm personalDetailsForm;
-    private HelpForm helpForm;
     private CookieForm cookieForm;
 
     public MainPage() {
-        super(By.className("bagaar-link__image"), "Main page");
+        super(By.cssSelector("div.timer--white"), "Main page");
     }
 
     public String getTimerValue() {
@@ -33,20 +31,6 @@ public class MainPage extends Form {
             interestsForm = new InterestsForm();
         }
         return interestsForm;
-    }
-
-    public PersonalDetailsForm getPersonalDetailsForm() {
-        if (personalDetailsForm == null) {
-            personalDetailsForm = new PersonalDetailsForm();
-        }
-        return personalDetailsForm;
-    }
-
-    public HelpForm getHelpForm() {
-        if (helpForm == null) {
-            helpForm = new HelpForm();
-        }
-        return helpForm;
     }
 
     public CookieForm getCookieForm() {

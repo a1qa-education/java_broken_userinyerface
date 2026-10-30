@@ -1,9 +1,9 @@
-package config;
+package utils;
 
 import aquality.selenium.core.utilities.ISettingsFile;
 import aquality.selenium.core.utilities.JsonSettingsFile;
+import models.EnvConfig;
 import lombok.experimental.UtilityClass;
-import utils.JsonUtils;
 
 @UtilityClass
 public class EnvConfigReader {
